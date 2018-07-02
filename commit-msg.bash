@@ -10,8 +10,8 @@ gawk_path=""
 # check if gawk dependency is installed
 gawk_path=$(which gawk)
 if [[ -z gawk_path ]]; then
-	echo "commit-msg githook requires gawk to be installed" &&
-	echo "on Mac run 'brew install gawk'" &&
+	echo "commit-msg githook requires gawk to be installed" && \
+	echo "on Mac run 'brew install gawk'" && \
 	echo "aborting commit, to override use \"git commit --no-verify ...\""
 
 	exit ${ERROR}
@@ -37,8 +37,8 @@ branch_name=$(git branch | grep '*' | sed 's/* //')
 echo ${branch_name}
 ticket_number=$(echo ${branch_name} | gawk '{ match($0, /^(\w+\/)?(\w+-[0-9]+)/, arr); print arr[2] }')
 if [[ -z $ticket_number ]]; then
-	echo "Error: malformed branch name" &&
-	echo "branches should be named ticket_type/ticket-number" &&
+	echo "Error: malformed branch name" && \
+	echo "branches should be named ticket_type/ticket-number" && \
 	echo "aborting commit, to override use \"git commit --no-verify ...\""
 
 	exit ${ERROR}

@@ -11,7 +11,7 @@ Ensure load-hook.sh is executable. If not, run `chmod +x load-hook.sh`
 ### Usage
 Run the load-hook.sh with the path to the hook you want and the root of the git repo you want to add it to.
 ```
-./load-hook.sh ./hooks/commit-msg.sh ../ingram_iq
+./load-hook.sh ./hooks/commit-msg.sh ../git_repo_root_dir
 ```
 Will load the commit-msg hook to the ingram_iq repo. Once loaded, any attempt to make a commit when both the message and the branch name are missing 
 a Jira ticket number will fail

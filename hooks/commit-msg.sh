@@ -5,6 +5,18 @@ TEXT_ERROR="\\033[1;31m"
 SUCCESS=0
 ERROR=1
 
+# parse the ticket number from the branch name
+# expects branches to be named either:
+#    * TICKET-1234-some-branch-name
+#    * ticketType/TICKET-1234-some-branch-name
+# Any branch that starts with local/ is not validated
+branch_name=$(git branch | grep '*' | sed 's/* //')
+
+is_local_branch=$(echo ${branch_name} | grep 'local/')
+if [ ! -z "$is_local_branch" ]; then
+	exit ${SUCCESS}
+fi
+
 # the user's commit message is saved in a temp file, the path is passed as the argument to this hook
 # $1 is the filepath, $(<$1) reads the contents of the file into the variable
 commit_message=$(<$1)

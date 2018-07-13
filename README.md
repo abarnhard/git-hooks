@@ -14,4 +14,5 @@ Run the load-hook.sh with the path to the hook you want and the root of the git 
 ./load-hook.sh ./hooks/commit-msg.sh ../git_repo_root_dir
 ```
 Will load the commit-msg hook to the .git/hooks directory of the repo. Once loaded, any attempt to make a commit when both the message and the branch name are missing 
-a Jira ticket number will fail
+a Jira ticket number will fail 
+* branches that start with local/ are not validated by the commit-msg hook

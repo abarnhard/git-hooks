@@ -8,7 +8,7 @@ TEXT_YELLOW="\\033[1;33m"
 echo "$TEXT_YELLOW""[ >>> PRE-COMMIT START ]""$TEXT_DEFAULT"
 
 FILES_PATTERN='(\..+)?$'
-FORBIDDEN="console\.(debug|info|log|warn)\([^)]*\)"
+FORBIDDEN="console\.(debug|info|log|warn)\([^)]*\)|binding\.pry"
 
 if git diff --cached --name-only | \
     grep -E $FILES_PATTERN | \
